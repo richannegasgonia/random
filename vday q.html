@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f7e0e8;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #question {
+      margin-top: 20%;
+      font-size: 24px;
+    }
+
+    #yes {
+      display: inline-block;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      margin: 20px;
+      text-decoration: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    #no {
+      display: inline-block;
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 10px 20px;
+      margin: 20px;
+      text-decoration: none;
+      font-size: 18px;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 1s ease-in-out;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<div id="question">Will you be my Valentine?</div>
+<a href="#" id="yes" onclick="showPopup()">Yes</a>
+<a href="#" id="no" onmouseover="moveNo()">No</a>
+
+<div id="popup">
+  Yay! Happy Valentine's Day!
+</div>
+
+<script>
+  function moveNo() {
+    const noButton = document.getElementById('no');
+    const maxWidth = window.innerWidth - noButton.clientWidth;
+    const maxHeight = window.innerHeight - noButton.clientHeight;
+
+    const randomX = Math.floor(Math.random() * maxWidth);
+    const randomY = Math.floor(Math.random() * maxHeight);
+
+    noButton.style.left = `${randomX}px`;
+    noButton.style.top = `${randomY}px`;
+  }
+
+  function showPopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
